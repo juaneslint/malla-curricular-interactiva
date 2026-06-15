@@ -31,11 +31,12 @@ body {
 
 /* Cuadro de ramo */
 .ramo {
-  width: 85px;
+  width: 100%;
+  min-width: 85px;
   height: 50px;
   border: 2px solid #ccc;
   background: var(--ramo-base);
-  margin: 4px 0;
+  margin: 0;
   padding: 6px;
   text-align: center;
   font-size: 0.8rem;
@@ -47,6 +48,7 @@ body {
   overflow: hidden;
   word-break: break-word;
   color: var(--texto);
+  box-sizing: border-box;
 }
 
 /* Hover */
@@ -92,6 +94,10 @@ body {
   padding: 8px 0;
   background: transparent;
   border: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(85px, 1fr));
+  gap: 8px;
+  align-content: start;
 }
 .semestre h2 {
   color: var(--texto);
@@ -103,6 +109,7 @@ body {
   flex-direction: column;
   align-items: flex-start;
   line-height: 1.1;
+  grid-column: 1 / -1;
 }
 .semestre h2::after {
   content: "Semestre";
@@ -151,8 +158,9 @@ body.modo-noche #toggle-tema {
 /* Contenedor de malla */
 #malla {
   font-family: 'Myriad Pro';
-  display: flex;
-  gap: 8px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
   padding: 10px;
   max-width: 100%;
   box-sizing: border-box;
